@@ -1,0 +1,24 @@
+h2 {
+    margin: 0; 
+}
+
+.data--input {
+    border: 2pt solid black;
+    padding: 10px 10px; 
+    margin-bottom: 10px;
+    height: 15vh; 
+}
+
+.library--display {
+    border: 2pt solid black;
+    padding: 10px 10px; 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(30vh, 1fr));
+    gap: 10px;
+}
+
+.library--card {
+    border: 1pt solid black;
+    height: 40vh; 
+    width: 30vh; 
+}
