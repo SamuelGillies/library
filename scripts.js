@@ -17,13 +17,14 @@ Book.prototype.info = function () {
     }
 }
 
-function addBookToLibrary() {
-    let titleVal = document.getElementById('title'); 
-    let authorVal = document.getElementById('author'); 
-    let pageVal = document.getElementById('pages'); 
-    let readVal = document.getElementById('read-status'); 
+function addBookToLibrary(event) {
+    event.preventDefault();
+    let titleVal = document.getElementById('title').value; 
+    let authorVal = document.getElementById('author').value; 
+    let pageVal = document.getElementById('pages').value; 
+    let readVal = document.getElementById('read-status').value; 
 
-    myLibrary.push(new Book(titleVal, authorVal, pageVal, readVal));
+    myLibrary.push(new Book(titleVal, authorVal, pageVal, readVal));    
 }
 
 for (let i = 0; i < myLibrary.length; i++) {
@@ -32,3 +33,6 @@ for (let i = 0; i < myLibrary.length; i++) {
     document.getElementById(`library--pages[${i}]`).innerHTML = myLibrary[i].pages; 
     document.getElementById(`library--read-status[${i}]`).innerHTML = myLibrary[i].read; 
 }
+
+document.getElementById('submit-button').addEventListener("click", addBookToLibrary());
+console.log(myLibrary); 
