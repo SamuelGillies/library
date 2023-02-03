@@ -26,6 +26,15 @@ function addCard() {
     bookshelf.createElement("div").classlist.add("library--card"); 
 }
 
+function renderBookshelf() {
+    for (let i = 0; i < myLibrary.length; i++) {
+        document.getElementById(`library--title[${i}]`).innerHTML = myLibrary[i].title; 
+        document.getElementById(`library--author[${i}]`).innerHTML = myLibrary[i].author; 
+        document.getElementById(`library--pages[${i}]`).innerHTML = myLibrary[i].pages; 
+        document.getElementById(`library--read-status[${i}]`).innerHTML = myLibrary[i].read; 
+    }; 
+}
+
 document.getElementById('form').addEventListener('submit', (e) => {
     e.preventDefault();
     let titleVal = document.getElementById('title').value; 
@@ -34,12 +43,6 @@ document.getElementById('form').addEventListener('submit', (e) => {
     let readVal = document.getElementById('read-status').value; 
 
     addBookToLibrary(titleVal, authorVal, pageVal, readVal);
-
-    for (let i = 0; i < myLibrary.length; i++) {
-        document.getElementById(`library--title[${i}]`).innerHTML = myLibrary[i].title; 
-        document.getElementById(`library--author[${i}]`).innerHTML = myLibrary[i].author; 
-        document.getElementById(`library--pages[${i}]`).innerHTML = myLibrary[i].pages; 
-        document.getElementById(`library--read-status[${i}]`).innerHTML = myLibrary[i].read; 
-    };  
+    renderBookshelf(); 
 }); 
 
