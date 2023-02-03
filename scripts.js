@@ -22,12 +22,33 @@ function addBookToLibrary(titleVal, authorVal, pageVal, readVal) {
     myLibrary.push(new Book(titleVal, authorVal, pageVal, readVal));    
 }
 
+function clearBookshelf() {
+    for (let i = 0; i < myLibrary.length; i++) {
+        let reset = bookshelf.getElementsByClassName(`library--card`);
+        console.log(reset); 
+        reset.remove();
+    }
+}
+
 function addCard() {
-    bookshelf.createElement("div").classlist.add("library--card"); 
+    for (let i = 0; i < myLibrary.length; i++) {
+        let card = document.createElement("div");
+        card.setAttribute("id", `library--card[${i}]`);
+        card.setAttribute("class", `library--card`);
+        bookshelf.appendChild(card);
+
+        
+    }
+        
+        //bookshelf.getElementById(`library--card[${i}]`).createElement("h4").classlist.add("library--title").setAttribute("id", `library--title[${i}]`);
+        //bookshelf.getElementById(`library--card[${i}]`).createElement("p").classlist.add("library--author").setAttribute("id", `library--author[${i}]`);
+        //bookshelf.getElementById(`library--card[${i}]`).createElement("p").classlist.add("library--pages").setAttribute("id", `library--pages[${i}]`);
+        //bookshelf.getElementById(`library--card[${i}]`).createElement("p").classlist.add("library--read-status").setAttribute("id", `library--read-status[${i}]`);
 }
 
 function renderBookshelf() {
     for (let i = 0; i < myLibrary.length; i++) {
+        addCard(); 
         document.getElementById(`library--title[${i}]`).innerHTML = myLibrary[i].title; 
         document.getElementById(`library--author[${i}]`).innerHTML = myLibrary[i].author; 
         document.getElementById(`library--pages[${i}]`).innerHTML = myLibrary[i].pages; 
@@ -43,6 +64,9 @@ document.getElementById('form').addEventListener('submit', (e) => {
     let readVal = document.getElementById('read-status').value; 
 
     addBookToLibrary(titleVal, authorVal, pageVal, readVal);
+    console.log(myLibrary); 
+    clearBookshelf();
     renderBookshelf(); 
+
 }); 
 
