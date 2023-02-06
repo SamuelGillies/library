@@ -13,8 +13,9 @@ h2 {
     padding: 10px 10px; 
     display: grid; 
     grid-template-columns: repeat(auto-fit, minmax(30vh, 1fr));
+    justify-items: center;
     gap: 10px;
-    height: min(100%, 50vh);
+    min-height: 40vh;
 }
 
 .library--card {
