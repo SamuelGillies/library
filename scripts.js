@@ -24,9 +24,8 @@ function addBookToLibrary(titleVal, authorVal, pageVal, readVal) {
 
 function clearBookshelf() {
     for (let i = 0; i < myLibrary.length; i++) {
-        let reset = bookshelf.getElementsByClassName(`library--card`);
-        console.log(reset); 
-        reset.remove();
+        let item = document.getElementsByClassName('library--card');
+        bookshelf.remove(item);
     }
 }
 
@@ -37,18 +36,30 @@ function addCard() {
         card.setAttribute("class", `library--card`);
         bookshelf.appendChild(card);
 
-        
+        let title = document.createElement("h2");
+        title.setAttribute("id", `library--title[${i}]`);
+        title.setAttribute("class", `library--title`);
+        card.appendChild(title);
+
+        let author = document.createElement("p");
+        author.setAttribute("id", `library--author[${i}]`);
+        author.setAttribute("class", `library--author`);
+        card.appendChild(author);
+
+        let pages = document.createElement("p");
+        pages.setAttribute("id", `library--pages[${i}]`);
+        pages.setAttribute("class", `library--pages`);
+        card.appendChild(pages);
+
+        let read = document.createElement("p");
+        read.setAttribute("id", `library--read-status[${i}]`);
+        read.setAttribute("class", `library--read-status`);
+        card.appendChild(read);
     }
-        
-        //bookshelf.getElementById(`library--card[${i}]`).createElement("h4").classlist.add("library--title").setAttribute("id", `library--title[${i}]`);
-        //bookshelf.getElementById(`library--card[${i}]`).createElement("p").classlist.add("library--author").setAttribute("id", `library--author[${i}]`);
-        //bookshelf.getElementById(`library--card[${i}]`).createElement("p").classlist.add("library--pages").setAttribute("id", `library--pages[${i}]`);
-        //bookshelf.getElementById(`library--card[${i}]`).createElement("p").classlist.add("library--read-status").setAttribute("id", `library--read-status[${i}]`);
 }
 
 function renderBookshelf() {
     for (let i = 0; i < myLibrary.length; i++) {
-        addCard(); 
         document.getElementById(`library--title[${i}]`).innerHTML = myLibrary[i].title; 
         document.getElementById(`library--author[${i}]`).innerHTML = myLibrary[i].author; 
         document.getElementById(`library--pages[${i}]`).innerHTML = myLibrary[i].pages; 
@@ -63,9 +74,9 @@ document.getElementById('form').addEventListener('submit', (e) => {
     let pageVal = document.getElementById('pages').value; 
     let readVal = document.getElementById('read-status').value; 
 
-    addBookToLibrary(titleVal, authorVal, pageVal, readVal);
-    console.log(myLibrary); 
     clearBookshelf();
+    addBookToLibrary(titleVal, authorVal, pageVal, readVal);
+    addCard(); 
     renderBookshelf(); 
 
 }); 
