@@ -24,8 +24,8 @@ function addBookToLibrary(titleVal, authorVal, pageVal, readVal) {
 
 function clearBookshelf() {
     for (let i = 0; i < myLibrary.length; i++) {
-        let item = document.getElementsByClassName('library--card');
-        bookshelf.remove(item);
+        let item = document.getElementById(`library--card[${i}]`);
+        bookshelf.removeChild(item);
     }
 }
 
@@ -69,15 +69,15 @@ function renderBookshelf() {
 
 document.getElementById('form').addEventListener('submit', (e) => {
     e.preventDefault();
+    clearBookshelf();
+
     let titleVal = document.getElementById('title').value; 
     let authorVal = document.getElementById('author').value; 
     let pageVal = document.getElementById('pages').value; 
     let readVal = document.getElementById('read-status').value; 
 
-    clearBookshelf();
     addBookToLibrary(titleVal, authorVal, pageVal, readVal);
     addCard(); 
     renderBookshelf(); 
-
 }); 
 
