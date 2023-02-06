@@ -1,5 +1,30 @@
+@font-face {
+    font-family: "Raleway";
+    src: url(/Raleway/Raleway-VariableFont_wght.ttf);
+  }
+
+:root {
+    font-family: "Raleway";
+}
+
 h2 {
     margin: 0; 
+}
+
+.modal-btn-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-btn {
+    width: 90vw; 
+    height: 50px; 
+    margin: 10px; 
+    border: 2pt solid black;
+    border-radius: 10px;
+    background-color: maroon;
+    color: white;   
 }
 
 .data--input {
@@ -24,17 +49,7 @@ h2 {
     width: 30vh; 
 }
 
-.modal-btn {
-    width: 90vw; 
-    height: 50px; 
-    margin: 10px; 
-    border: 2pt solid black;
-    border-radius: 10px;
-    background-color: maroon;
-    color: white;
 
-    
-}
 
 /* .hidden {
     display: none; 
