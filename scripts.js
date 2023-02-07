@@ -36,6 +36,16 @@ function addCard() {
         card.setAttribute("class", `library--card`);
         bookshelf.appendChild(card);
 
+        let clear = document.createElement("button"); 
+        clear.setAttribute("id", `library--clear[${i}]`);
+        clear.setAttribute("class", `library--clear button-close` );
+        card.appendChild(clear);
+
+        let cross = document.createElement("img"); 
+        cross.setAttribute("src", "./icons/close-icon.svg");
+        cross.setAttribute("class", `library--clear "button-close--icon"` );
+        clear.appendChild(cross);
+
         let title = document.createElement("h2");
         title.setAttribute("id", `library--title[${i}]`);
         title.setAttribute("class", `library--title`);
@@ -89,4 +99,9 @@ document.getElementById('modal-btn').addEventListener('click', (e) => {
 document.getElementById('btn-close').addEventListener('click', (e) => {
     let modal = document.getElementById('modal--block');
     modal.classList.add('hidden');
+});
+
+document.getElementById('btn--read-status').addEventListener('click', (e) => {
+    let readbtn = document.getElementById('btn--read-status');
+    readbtn.classList.add('read');
 });
