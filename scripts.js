@@ -81,3 +81,12 @@ document.getElementById('form').addEventListener('submit', (e) => {
     renderBookshelf(); 
 }); 
 
+document.getElementById('modal-btn').addEventListener('click', (e) => {
+    let modal = document.getElementById('modal--block');
+    modal.classList.remove('hidden');
+});
+
+document.getElementById('btn-close').addEventListener('click', (e) => {
+    let modal = document.getElementById('modal--block');
+    modal.classList.add('hidden');
+});

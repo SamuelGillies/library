@@ -27,10 +27,23 @@ h2 {
     color: white;   
 }
 
+.modal {
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 .data--input {
     border: 2pt solid black;
     padding: 10px 10px; 
-    height: 15vh; 
+    height: 100%; 
+    width: 50%;
+}
+
+form {
+    display: flex; 
+    flex-direction: column;
 }
 
 .library--display {
@@ -51,6 +64,6 @@ h2 {
 
 
 
-/* .hidden {
+.hidden {
     display: none; 
 }
