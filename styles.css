@@ -11,6 +11,30 @@ h2 {
     margin: 0; 
 }
 
+.button-close {
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    height: 20px; 
+    width: 20px; 
+    border-radius: 16px;
+}
+
+.button-close img {
+    height: 15px; 
+    width: 15px; 
+}
+
+.modal--close {
+    display: flex; 
+    align-items: center;
+    justify-content: end;
+}
+
+.data--input h2 {
+    text-align: center;
+}
+
 .modal-btn-container {
     display: flex;
     align-items: center;
@@ -61,8 +85,6 @@ form {
     height: 40vh; 
     width: 30vh; 
 }
-
-
 
 .hidden {
     display: none; 
