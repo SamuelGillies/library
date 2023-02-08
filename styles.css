@@ -138,3 +138,20 @@ form {
     width: 30vh; 
 }
 
+.library--card p {
+    margin: 0;
+}
+
+.library--closeBox {
+    display: flex; 
+    flex-direction: row;
+    align-items: center;
+    justify-content: end;
+    padding: 10px; 
+}
+
+.library--infoBox {
+    display: flex; 
+    flex-direction: column;
+    justify-content: space-around;
+}

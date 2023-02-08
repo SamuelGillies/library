@@ -26,36 +26,46 @@ function addCard() {
         card.setAttribute("class", `library--card`);
         bookshelf.appendChild(card);
 
+        let closeBox = document.createElement("div");
+        closeBox.setAttribute("id", `library--closeBox[${i}]`);
+        closeBox.setAttribute("class", `library--closeBox`);
+        card.appendChild(closeBox);
+
         let clear = document.createElement("button"); 
         clear.setAttribute("id", `library--clear[${i}]`);
-        clear.setAttribute("class", `library--clear button-close` );
+        clear.setAttribute("class", `library--clear button-close`);
         clear.setAttribute("onclick", `removeBook(${i})`);
-        card.appendChild(clear);
+        closeBox.appendChild(clear);
 
         let cross = document.createElement("img"); 
         cross.setAttribute("src", "./icons/close-icon.svg");
-        cross.setAttribute("class", `library--x "button-close--icon"` );
+        cross.setAttribute("class", `library--x "button-close--icon"`);
         clear.appendChild(cross);
+
+        let infoBox = document.createElement("div");
+        infoBox.setAttribute("id", `library--infoBox[${i}]`);
+        infoBox.setAttribute("class", `library--infoBox`);
+        card.appendChild(infoBox);
 
         let title = document.createElement("h2");
         title.setAttribute("id", `library--title[${i}]`);
         title.setAttribute("class", `library--title`);
-        card.appendChild(title);
+        infoBox.appendChild(title);
 
         let author = document.createElement("p");
         author.setAttribute("id", `library--author[${i}]`);
         author.setAttribute("class", `library--author`);
-        card.appendChild(author);
+        infoBox.appendChild(author);
 
         let pages = document.createElement("p");
         pages.setAttribute("id", `library--pages[${i}]`);
         pages.setAttribute("class", `library--pages`);
-        card.appendChild(pages);
+        infoBox.appendChild(pages);
 
         let read = document.createElement("button");
         read.setAttribute("id", `library--read-status[${i}]`);
         read.setAttribute("class", `library--read-status`);
-        card.appendChild(read);
+        infoBox.appendChild(read);
     }
 }
 
@@ -81,7 +91,7 @@ document.getElementById('form').addEventListener('submit', (e) => {
 
     let titleVal = document.getElementById('title').value; 
     let authorVal = document.getElementById('author').value; 
-    let pageVal = document.getElementById('pages').value; 
+    let pageVal = document.getElementById('pages').value + ' pages'; 
 
     if (document.getElementById('read-status').checked == true) {
             readVal = 'has been read';
