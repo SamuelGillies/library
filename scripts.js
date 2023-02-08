@@ -8,16 +8,6 @@ function Book(title, author, pages, read) {
     this.read = read
 }
 
-Book.prototype.info = function () {
-    if (this.read == true) {
-        return this.title + " by " + this.author + ", " + this.pages + " pages, has been read"; 
-    } else if (this.read == false) {
-        return this.title + " by " + this.author + ", " + this.pages + " pages, not read yet";
-    } else if ((this.read != true) && (this.read != false)) {
-        return "Invalid read status. Has this book been read, true or false?"
-    }
-}
-
 function addBookToLibrary(titleVal, authorVal, pageVal, readVal) {
     myLibrary.push(new Book(titleVal, authorVal, pageVal, readVal));    
 }
@@ -39,11 +29,12 @@ function addCard() {
         let clear = document.createElement("button"); 
         clear.setAttribute("id", `library--clear[${i}]`);
         clear.setAttribute("class", `library--clear button-close` );
+        clear.setAttribute("onclick", `removeBook(${i})`);
         card.appendChild(clear);
 
         let cross = document.createElement("img"); 
         cross.setAttribute("src", "./icons/close-icon.svg");
-        cross.setAttribute("class", `library--clear "button-close--icon"` );
+        cross.setAttribute("class", `library--x "button-close--icon"` );
         clear.appendChild(cross);
 
         let title = document.createElement("h2");
@@ -66,6 +57,13 @@ function addCard() {
         read.setAttribute("class", `library--read-status`);
         card.appendChild(read);
     }
+}
+
+function removeBook(index) {
+    clearBookshelf();
+    myLibrary.splice(index, 1); 
+    addCard(); 
+    renderBookshelf(); 
 }
 
 function renderBookshelf() {
@@ -101,7 +99,6 @@ document.getElementById('btn-close').addEventListener('click', (e) => {
     modal.classList.add('hidden');
 });
 
-document.getElementById('btn--read-status').addEventListener('click', (e) => {
-    let readbtn = document.getElementById('btn--read-status');
-    readbtn.classList.add('read');
-});
+
+
+
