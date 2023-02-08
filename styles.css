@@ -136,6 +136,8 @@ form {
     border: 1pt solid black;
     height: 40vh; 
     width: 30vh; 
+    min-height: 200px;   
+    min-width: 100px;
 }
 
 .library--card p {
@@ -150,8 +152,44 @@ form {
     padding: 10px; 
 }
 
-.library--infoBox {
+.library--bookBox {
     display: flex; 
     flex-direction: column;
-    justify-content: space-around;
+    align-items: center; 
+    justify-content: space-between;
+    height: 32vh;
+}
+
+.library--titleBox {
+    margin: 0; 
+    display: flex; 
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center;
+}
+
+.library--title {
+    text-align: center;
+}
+
+.library--infoBox {
+    margin: 0;
+    display: flex; 
+    flex-direction: column;
+    align-items: center; 
+    justify-content: end;
+}
+
+.library--author {
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.library--pages {
+    text-align: center;
+    padding-bottom: 10px; 
+}
+
+.library--read-status {
+    text-align: center;
 }

@@ -42,15 +42,25 @@ function addCard() {
         cross.setAttribute("class", `library--x "button-close--icon"`);
         clear.appendChild(cross);
 
-        let infoBox = document.createElement("div");
-        infoBox.setAttribute("id", `library--infoBox[${i}]`);
-        infoBox.setAttribute("class", `library--infoBox`);
-        card.appendChild(infoBox);
+        let bookBox = document.createElement("div");
+        bookBox.setAttribute("id", `library--bookBox[${i}]`);
+        bookBox.setAttribute("class", `library--bookBox`);
+        card.appendChild(bookBox);
+
+        let titleBox = document.createElement("div");
+        titleBox.setAttribute("id", `library--titleBox[${i}]`);
+        titleBox.setAttribute("class", `library--titleBox`);
+        bookBox.appendChild(titleBox);
 
         let title = document.createElement("h2");
         title.setAttribute("id", `library--title[${i}]`);
         title.setAttribute("class", `library--title`);
-        infoBox.appendChild(title);
+        titleBox.appendChild(title);
+
+        let infoBox = document.createElement("div");
+        infoBox.setAttribute("id", `library--infoBox[${i}]`);
+        infoBox.setAttribute("class", `library--infoBox`);
+        bookBox.appendChild(infoBox);
 
         let author = document.createElement("p");
         author.setAttribute("id", `library--author[${i}]`);
