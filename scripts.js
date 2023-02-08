@@ -52,7 +52,7 @@ function addCard() {
         pages.setAttribute("class", `library--pages`);
         card.appendChild(pages);
 
-        let read = document.createElement("p");
+        let read = document.createElement("button");
         read.setAttribute("id", `library--read-status[${i}]`);
         read.setAttribute("class", `library--read-status`);
         card.appendChild(read);
@@ -82,7 +82,12 @@ document.getElementById('form').addEventListener('submit', (e) => {
     let titleVal = document.getElementById('title').value; 
     let authorVal = document.getElementById('author').value; 
     let pageVal = document.getElementById('pages').value; 
-    let readVal = document.getElementById('read-status').value; 
+
+    if (document.getElementById('read-status').checked == true) {
+            readVal = 'has been read';
+        } else if (document.getElementById('read-status').checked == false) {
+            readVal = 'has not been read';
+    }; 
 
     addBookToLibrary(titleVal, authorVal, pageVal, readVal);
     addCard(); 
