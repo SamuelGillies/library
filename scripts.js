@@ -124,6 +124,12 @@ document.getElementById('btn-close').addEventListener('click', (e) => {
     modal.classList.add('hidden');
 });
 
+let toggle = true; 
 
-
-
+bookshelf.addEventListener('click', function(event) {
+    if (event.target.matches('.library--read-status')) {
+        event.target.className = toggle ? 'library--read-status form--read' : 'library--read-status form--unread';
+        event.target.textContent = toggle ? 'read' : 'not read';
+        toggle = !toggle;
+    }
+});

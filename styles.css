@@ -88,10 +88,13 @@ form {
 
 .form--read {
     content: "read"; 
+    background-color: green;
+
 }
 
 .form--unread {
     content: "not read"; 
+    background-color: red;
 }
 
 .hidden {
