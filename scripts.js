@@ -91,7 +91,14 @@ function renderBookshelf() {
         document.getElementById(`library--title[${i}]`).innerHTML = myLibrary[i].title; 
         document.getElementById(`library--author[${i}]`).innerHTML = myLibrary[i].author; 
         document.getElementById(`library--pages[${i}]`).innerHTML = myLibrary[i].pages; 
-        document.getElementById(`library--read-status[${i}]`).innerHTML = myLibrary[i].read; 
+
+        if (myLibrary[i].read == true) {
+            document.getElementById(`library--read-status[${i}]`).innerHTML = 'read';
+            document.getElementById(`library--read-status[${i}]`).classList.add("form--read");
+        } else if (myLibrary[i].read == false) {
+            document.getElementById(`library--read-status[${i}]`).innerHTML = 'not read';
+            document.getElementById(`library--read-status[${i}]`).classList.add("form--unread");
+        }
     }; 
 }
 
@@ -104,9 +111,9 @@ document.getElementById('form').addEventListener('submit', (e) => {
     let pageVal = document.getElementById('pages').value + ' pages'; 
 
     if (document.getElementById('read-status').checked == true) {
-            readVal = 'has been read';
+            readVal = true;
         } else if (document.getElementById('read-status').checked == false) {
-            readVal = 'has not been read';
+            readVal = false;
     }; 
 
     addBookToLibrary(titleVal, authorVal, pageVal, readVal);
@@ -124,12 +131,34 @@ document.getElementById('btn-close').addEventListener('click', (e) => {
     modal.classList.add('hidden');
 });
 
-let toggle = true; 
+//let toggle = true; 
+
 
 bookshelf.addEventListener('click', function(event) {
-    if (event.target.matches('.library--read-status')) {
-        event.target.className = toggle ? 'library--read-status form--read' : 'library--read-status form--unread';
-        event.target.textContent = toggle ? 'read' : 'not read';
-        toggle = !toggle;
+        for (let i = 0; i < myLibrary.length; i++) {
+            if (event.target.id ===`library--read-status[${i}]`) {
+                myLibrary[i].read = !myLibrary[i].read;
+                if (myLibrary[i].read == true) {
+                    event.target.classList.remove('form--unread');
+                    event.target.classList.add('form--read');
+                } else if (myLibrary[i].read == false) {
+                    event.target.classList.remove('form--unread');
+                    event.target.classList.add('form--read');
+                }
+            }
+        clearBookshelf();
+        addCard(); 
+        renderBookshelf(); 
     }
 });
+
+// bookshelf.addEventListener('click', function(event) {
+//     if (event.target.matches('.library--read-status')) {
+
+//         console.log(event.target); 
+
+//         // event.target.className = toggle ? 'library--read-status form--read' : 'library--read-status form--unread';
+//         // event.target.textContent = toggle ? 'read' : 'not read';
+//         // toggle = !toggle;
+//     }
+// });
