@@ -87,14 +87,21 @@ form {
 }
 
 .form--read {
-    content: "read"; 
     background-color: green;
-
+    color: white;
+    border: 1pt solid black;
+    border-radius: 8px;
+    width: 6rem;
+    height: 1.5rem; 
 }
 
 .form--unread {
-    content: "not read"; 
     background-color: red;
+    color: white;
+    border: 1pt solid black;
+    border-radius: 8px;
+    width: 6rem;
+    height: 1.5rem; 
 }
 
 .hidden {
